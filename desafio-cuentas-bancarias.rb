@@ -22,7 +22,8 @@ class BankAccount
     @balance = balance
   end
 
-  def transfer_money(amount, external_account)
+  def transfer_money(external_account)
+    byebug
     @balance = @balance - amount
     external_account.balance = external_account.balance + amount
   end
@@ -30,7 +31,7 @@ end
 
 account1 = BankAccount.new('Krungsri Bank', '123-123', 5000)
 account2 = BankAccount.new('Kasikorn Bank', '123-124', 5000)
-account1.transfer_money(5000, account2)
+account1.transfer_money(account2)
 
 puts account1.balance
 puts account2.balance
